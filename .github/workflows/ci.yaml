@@ -1,0 +1,64 @@
+name: Flutter CI/CD
+
+# 1. Triggers
+# This pipeline runs on every push and pull request to your "main" branch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. Jobs
+jobs:
+  build-and-test:
+    # A name for this job
+    name: Build, Analyze, and Test
+
+    # Run this job on the latest version of Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # 3. Checkout Code
+      # Gets your code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 4. Set up Java
+      # Required for Flutter's Android build process
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Flutter 3.19+ recommends Java 17
+
+      # 5. Set up Flutter
+      # Downloads and installs the Flutter SDK
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # Use the latest stable version
+          cache: true # Caches dependencies to speed up future runs
+
+      # 6. Get Dependencies
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      # 7. Run Build Runner (if you use it)
+      # This generates your .mocks.dart, .freezed.dart, etc.
+      - name: Run build_runner
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      # 8. Run Analyzer
+      # Checks your code for any formatting or lint errors
+      - name: Run analyzer
+        run: flutter analyze
+
+      # 9. Run Tests
+      # This is it! Runs all the unit tests you just wrote
+      - name: Run unit tests
+        run: flutter test
+
+      # 10. Build the App (Optional but Recommended)
+      # This proves your app can actually be compiled
+      - name: Build Android APK
+        run: flutter build apk --debug
