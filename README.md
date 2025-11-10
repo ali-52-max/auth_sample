@@ -56,7 +56,7 @@ You will need the Flutter SDK installed on your machine.
 
 1.  **Clone the repository:**
     ```sh
-    git clone [Your Repository URL]
+    git clone [https://github.com/ali-52-max/auth_sample.git]
     cd [your-project-folder]
     ```
 
