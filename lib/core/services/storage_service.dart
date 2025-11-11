@@ -10,7 +10,6 @@ class SecureStorageService {
       await storage.write(key: key, value: value);
       return true;
     } catch (e) {
-      print('Error writing to secure storage (key: $key): $e');
       return false;
     }
   }
@@ -19,7 +18,6 @@ class SecureStorageService {
     try {
       return await storage.read(key: key);
     } catch (e) {
-      print('Error reading from secure storage (key: $key): $e');
       return null;
     }
   }
@@ -29,7 +27,6 @@ class SecureStorageService {
       await storage.delete(key: key);
       return true;
     } catch (e) {
-      print('Error deleting from secure storage (key: $key): $e');
       return false;
     }
   }
@@ -39,7 +36,6 @@ class SecureStorageService {
       await storage.deleteAll();
       return true;
     } catch (e) {
-      print('Error deleting all from secure storage: $e');
       return false;
     }
   }
@@ -48,7 +44,6 @@ class SecureStorageService {
     try {
       return await storage.containsKey(key: key);
     } catch (e) {
-      print('Error checking key existence in secure storage (key: $key): $e');
       return false;
     }
   }
@@ -57,7 +52,6 @@ class SecureStorageService {
     try {
       return await storage.readAll();
     } catch (e) {
-      print('Error reading all from secure storage: $e');
       return {};
     }
   }
@@ -79,7 +73,6 @@ class SecureStorageService {
       await Future.wait(futures);
       return true;
     } catch (e) {
-      print('Error saving tokens: $e');
       return false;
     }
   }
@@ -94,7 +87,6 @@ class SecureStorageService {
         return null;
       }
     } catch (e) {
-      print('Error getting access token: $e');
       return null;
     }
   }
@@ -104,7 +96,6 @@ class SecureStorageService {
       final token = await storage.read(key: _refreshTokenKey);
       return token;
     } catch (e) {
-      print('Error getting refresh token: $e');
       return null;
     }
   }
@@ -117,7 +108,6 @@ class SecureStorageService {
       ]);
       return true;
     } catch (e) {
-      print('Error clearing tokens: $e');
       return false;
     }
   }
