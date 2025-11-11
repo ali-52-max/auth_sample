@@ -1,7 +1,6 @@
 import 'package:auth_sample/core/constants/app_values.dart';
 import 'package:auth_sample/features/auth/presentation/widgets/scaffold_body.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../core/utils/responsive_util.dart';
 import 'language_menu_button.dart';
 

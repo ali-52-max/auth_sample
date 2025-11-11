@@ -8,7 +8,7 @@ class AppColors {
   static const Color black = Colors.black;
   static const Color textBlack87 = Colors.black87;
   static const Color transparent = Colors.transparent;
-  static final Color white10 = Colors.white.withOpacity(0.1);
+  static final Color white10 = Color(0x1AFFFFFF);
 
   static const Color backgroundGrey = Color(0xfff5f5f5);
   static const Color darkText = Color(0xff0e0526);

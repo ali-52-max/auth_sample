@@ -178,7 +178,9 @@ class DioFactory {
         request.headers['Authorization'] = 'Bearer $newAccessToken';
         await _dio!.fetch(request);
       } catch (e) {
-        print('Failed to retry pending request: ${request.path}');
+        if (kDebugMode) {
+          print('Failed to retry pending request: ${request.path}');
+        }
       }
     }
   }

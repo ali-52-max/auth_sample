@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:auth_sample/features/auth/presentation/blocs/forms/signin_form/sign_in_form_bloc.dart';
+import 'package:auth_sample/features/auth/presentation/blocs/forms/signIn_form/sign_in_form_bloc.dart';
 import 'package:auth_sample/core/utils/validators/index.dart';
 
 void main() {

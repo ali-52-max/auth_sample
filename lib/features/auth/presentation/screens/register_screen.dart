@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:auth_sample/core/router/app_router.dart';
 import 'package:auth_sample/core/utils/responsive_util.dart';
 import 'package:auth_sample/core/localization/app_localization.dart';
