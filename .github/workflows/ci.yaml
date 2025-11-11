@@ -43,6 +43,11 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
+      # 6. Create .env file
+      - name: Create .env file
+        run: |
+          echo "REGISTRATION_KEY=${{ secrets.REGISTRATION_KEY }}" >> .env
+
       # 7. Run Build Runner (if you use it)
       # This generates your .mocks.dart, .freezed.dart, etc.
       - name: Run build_runner
